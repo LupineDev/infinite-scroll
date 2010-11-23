@@ -138,7 +138,9 @@
           box = $(opts.contentSelector).is('table') ? $('<tbody/>') : $('<div/>');  
           frag = document.createDocumentFragment();
 
-          box.load( path.join( props.currPage ) + ' ' + opts.itemSelector,null,loadCallback);
+          //box.load( path.join( props.currPage ) + ' ' + opts.itemSelector,null,loadCallback);
+					debug('path.join( props.currPage ) +  opts.itemSelector',path.join( props.currPage ) + ' ' + opts.itemSelector);
+          box.load( path.join( props.currPage ),null,loadCallback);
         });
         
         
@@ -153,6 +155,7 @@
         } else {
           
             var children = box.children();
+						//debug("children", children);
             
             // if it didn't return anything
             if (children.length == 0 || children.hasClass('error404')){
